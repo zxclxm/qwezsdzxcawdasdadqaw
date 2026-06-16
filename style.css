@@ -1,0 +1,419 @@
+body {
+    background: #f8f9fa;
+}
+
+.hero {
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    color: white;
+    padding: 100px 0;
+}
+
+.section-title {
+    font-weight: 800;
+}
+
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.icon-box {
+    font-size: 45px;
+    color: #0d6efd;
+}
+
+footer {
+    background: #111827;
+}
+
+/* ==========================
+   GLASS PROGRESS PREMIUM
+========================== */
+
+.glass-progress {
+    position: relative;
+    height: 24px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.glass-progress:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.glass-progress::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.55)
+        );
+
+    box-shadow:
+        inset 0 2px 4px rgba(255, 255, 255, 0.85),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.45);
+
+    transition: 0.25s ease;
+}
+
+.glass-progress:hover::before {
+    opacity: 1;
+}
+
+.glass-fill {
+    position: absolute;
+    inset: 0;
+    width: calc(var(--progress) * 1%);
+    border-radius: 999px;
+    overflow: hidden;
+
+    background-size: 280% 100%;
+    background-position: var(--mouse-percent, 50%) center;
+
+    transition:
+        background-position 0.05s linear,
+        filter 0.25s ease;
+}
+
+.glass-progress:not(.green):not(.yellow) .glass-fill {
+    background-image:
+        linear-gradient(
+            90deg,
+            #0d6efd 0%,
+            #3b82f6 25%,
+            #93c5fd 43%,
+            #ffffff 50%,
+            #93c5fd 57%,
+            #3b82f6 75%,
+            #0d6efd 100%
+        );
+}
+
+.green .glass-fill {
+    background-image:
+        linear-gradient(
+            90deg,
+            #198754 0%,
+            #22c55e 25%,
+            #86efac 43%,
+            #ffffff 50%,
+            #86efac 57%,
+            #22c55e 75%,
+            #198754 100%
+        );
+}
+
+.yellow .glass-fill {
+    background-image:
+        linear-gradient(
+            90deg,
+            #ffc107 0%,
+            #facc15 25%,
+            #fde68a 43%,
+            #ffffff 50%,
+            #fde68a 57%,
+            #facc15 75%,
+            #ffc107 100%
+        );
+}
+
+.glass-progress:hover .glass-fill {
+    filter: brightness(1.12) saturate(1.2);
+}
+
+.glass-progress span {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================
+   BOOTSTRAP ORBIT
+========================== */
+
+.bootstrap-orbit {
+    position: relative;
+    width: 100%;
+    height: 680px;
+    background: transparent;
+    overflow: visible;
+}
+
+.bootstrap-orbit::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 520px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.2),
+            rgba(139, 92, 246, 0.08),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+.orbit-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 200px;
+    height: 200px;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 38px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.13),
+        0 0 45px rgba(139, 92, 246, 0.18);
+
+    z-index: 20;
+    transition: 0.35s ease;
+
+    color: #111827;
+}
+
+.orbit-center i {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a78bfa
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+    color: white;
+
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.35);
+}
+
+.orbit-center h5 {
+    margin-top: 18px;
+    margin-bottom: 4px;
+
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.orbit-center p {
+    margin: 0;
+
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.orbit-card {
+    position: absolute;
+
+    width: 255px;
+    min-height: 145px;
+
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 28px;
+
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.11),
+        inset 0 1px 2px rgba(255, 255, 255, 0.75);
+
+    opacity: 0;
+
+    color: #111827;
+
+    z-index: 8;
+    transition: 0.45s ease;
+}
+
+.orbit-card i {
+    font-size: 30px;
+    color: #8b5cf6;
+
+    display: block;
+    margin-bottom: 10px;
+}
+
+.orbit-card strong {
+    display: block;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    margin-bottom: 7px;
+}
+
+.orbit-card span {
+    display: block;
+
+    font-size: 14px;
+    line-height: 1.45;
+
+    color: #4b5563;
+}
+
+/* KARTY STARTUJĄ BLIŻEJ ŚRODKA */
+
+.orbit-1 {
+    top: 9%;
+    left: 27%;
+    transform: translate(145px, 120px) scale(0.85);
+}
+
+.orbit-2 {
+    top: 9%;
+    right: 27%;
+    transform: translate(-145px, 120px) scale(0.85);
+}
+
+.orbit-3 {
+    bottom: 9%;
+    left: 27%;
+    transform: translate(145px, -120px) scale(0.85);
+}
+
+.orbit-4 {
+    bottom: 9%;
+    right: 27%;
+    transform: translate(-145px, -120px) scale(0.85);
+}
+
+/* HOVER — KARTY РАЗЛЕТАЮТСЯ ПО СТРЕЛКАМ */
+
+.bootstrap-orbit:hover .orbit-card {
+    opacity: 1;
+}
+
+.bootstrap-orbit:hover .orbit-center {
+    transform: translate(-50%, -50%) scale(1.05);
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.15),
+        0 0 55px rgba(139, 92, 246, 0.35);
+}
+
+.bootstrap-orbit:hover .orbit-1 {
+    transform: translate(0, 0) scale(1);
+}
+
+.bootstrap-orbit:hover .orbit-2 {
+    transform: translate(0, 0) scale(1);
+}
+
+.bootstrap-orbit:hover .orbit-3 {
+    transform: translate(0, 0) scale(1);
+}
+
+.bootstrap-orbit:hover .orbit-4 {
+    transform: translate(0, 0) scale(1);
+}
+
+/* RESPONSYWNOŚĆ */
+
+@media (max-width: 992px) {
+    .bootstrap-orbit {
+        height: 850px;
+    }
+
+    .orbit-center {
+        top: 50%;
+    }
+
+    .orbit-card {
+        width: 260px;
+    }
+
+    .orbit-1 {
+        top: 0;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, 120px) scale(0.85);
+    }
+
+    .orbit-2 {
+        top: 23%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, 100px) scale(0.85);
+    }
+
+    .orbit-3 {
+        bottom: 23%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -100px) scale(0.85);
+    }
+
+    .orbit-4 {
+        bottom: 0;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -120px) scale(0.85);
+    }
+
+    .bootstrap-orbit:hover .orbit-1,
+    .bootstrap-orbit:hover .orbit-2,
+    .bootstrap-orbit:hover .orbit-3,
+    .bootstrap-orbit:hover .orbit-4 {
+        transform: translate(-50%, 0) scale(1);
+    }
+}
